@@ -1,4 +1,6 @@
-function RecipeCard({ title, image, ingredients }) {
+import React from 'react';
+
+function RecipeCard({ title, image, ingredients, children }) {
   return (
     <div style={{
       border: '1px solid #ccc',
@@ -14,6 +16,9 @@ function RecipeCard({ title, image, ingredients }) {
           <li key={index}>{item}</li>
         ))}
       </ul>
+      <div style={{ marginTop: '1rem' }}>
+        {children}
+      </div>
     </div>
   );
 }
