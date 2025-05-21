@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import RecipeCard from './components/RecipeCard';
@@ -9,19 +10,19 @@ import img3 from './assets/recipe3.jpg';
 function App() {
   const recipes = [
     {
-      title: 'Chocolate Cake',
+      title: 'Gâteau au chocolat',
       image: img1,
-      ingredients: ['Flour', 'Cocoa', 'Eggs', 'Sugar', 'Butter']
+      ingredients: ['Farine', 'Cacao', 'Œufs', 'Sucre', 'Beurre']
     },
     {
-      title: 'Pancakes',
+      title: 'Crêpes',
       image: img2,
-      ingredients: ['Milk', 'Flour', 'Eggs', 'Sugar', 'Vanilla']
+      ingredients: ['Lait', 'Farine', 'Œufs', 'Sucre', 'Vanille']
     },
     {
-      title: 'Salad Bowl',
+      title: 'Salade composée',
       image: img3,
-      ingredients: ['Lettuce', 'Tomato', 'Cucumber', 'Olive oil']
+      ingredients: ['Laitue', 'Tomates', 'Concombre', 'Huile d’olive']
     }
   ];
 
@@ -30,7 +31,17 @@ function App() {
       <Header />
       <main style={{ padding: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         {recipes.map((r, i) => (
-          <RecipeCard key={i} title={r.title} image={r.image} ingredients={r.ingredients} />
+          <RecipeCard
+            key={i}
+            title={r.title}
+            image={r.image}
+            ingredients={r.ingredients}
+          >
+            <p style={{ marginTop: '0.5rem' }}>
+              Une délicieuse recette de {r.title.toLowerCase()}.
+            </p>
+            <button style={{ marginTop: '0.5rem' }}>Voir la recette</button>
+          </RecipeCard>
         ))}
       </main>
       <Footer />
